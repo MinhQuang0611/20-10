@@ -1,6 +1,6 @@
 const words = [
     "Happy", "Vietnamese Women's Day", "Whis You Have A Nice Day", "Filled with Love ", " Laughter And Happyess", "Chúc mừng", "ngày Phụ nữ", "Việt Nam", "20/10", 
-    "Chúc các chị em", "luôn xinh đẹp", "hạnh phúc", "và thành công"
+    "Chúc bạn", "luôn xinh đẹp", "hạnh phúc", "và thành công"
 ];
 
 const container = document.getElementById('word-container');
