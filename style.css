@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
@@ -21,6 +21,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Dancing Script', cursive;
+    width: 90%;
+    max-width: 600px;
 }
 
 .word {
@@ -28,6 +30,7 @@ body {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     position: absolute;
     font-family: 'Dancing Script', cursive;
+    width: 100%;
 }
 
 .word.visible {
@@ -43,6 +46,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 5;
+    overflow: hidden;
 }
 
 .flower {
@@ -88,4 +92,166 @@ body {
 
 .heart:after {
     top: -5px;
+}
+
+/* Responsive adjustments for tablets */
+@media screen and (max-width: 768px) {
+    #word-container {
+        font-size: 2.5rem;
+    }
+
+    .flower {
+        width: 15px;
+        height: 15px;
+    }
+
+    .heart {
+        width: 8px;
+        height: 8px;
+    }
+
+    .heart:before,
+    .heart:after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .heart:before {
+        left: -4px;
+    }
+
+    .heart:after {
+        top: -4px;
+    }
+}
+
+/* Responsive adjustments for smartphones */
+@media screen and (max-width: 480px) {
+    #word-container {
+        font-size: 2rem;
+    }
+
+    .flower {
+        width: 12px;
+        height: 12px;
+    }
+
+    .heart {
+        width: 6px;
+        height: 6px;
+    }
+
+    .heart:before,
+    .heart:after {
+        width: 6px;
+        height: 6px;
+    }
+
+    .heart:before {
+        left: -3px;
+    }
+
+    .heart:after {
+        top: -3px;
+    }
+}
+
+/* Specific adjustments for Samsung A02s and similar devices */
+@media screen and (max-width: 720px) and (min-height: 1600px), 
+       screen and (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+
+    #word-container {
+        font-size: 1.8rem;
+        width: 85%;
+        max-width: none;
+    }
+
+    .word {
+        padding: 10px;
+    }
+
+    .flower {
+        width: 10px;
+        height: 10px;
+    }
+
+    .heart {
+        width: 5px;
+        height: 5px;
+    }
+
+    .heart:before,
+    .heart:after {
+        width: 5px;
+        height: 5px;
+    }
+
+    .heart:before {
+        left: -2.5px;
+    }
+
+    .heart:after {
+        top: -2.5px;
+    }
+}
+
+/* Additional optimization for very narrow screens */
+@media screen and (max-width: 360px) {
+    #word-container {
+        font-size: 1.5rem;
+    }
+}
+
+/* Ensure proper scaling on high-DPI screens */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+    .flower, .heart {
+        background-size: contain;
+        transform: scale(0.8);
+    }
+}
+
+/* Hover effect for words */
+.word:hover {
+    color: #FFD700;
+    transform: scale(1.2);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animation for falling flowers */
+@keyframes fallFlower {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.flower {
+    animation: fallFlower 5s linear infinite;
+}
+
+/* Animation for floating hearts */
+@keyframes floatHeart {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+}
+
+.heart {
+    animation: floatHeart 4s ease-in-out infinite;
+}
+
+/* Ensuring content is visible on all background colors */
+#word-container {
+    mix-blend-mode: difference;
 }
