@@ -1,5 +1,5 @@
 const words = [
-    "Chúc mừng", "ngày Phụ nữ", "Việt Nam", "20/10", 
+    "Happy", "Vietnamese Women's Day", "Whis You Have A Nice Day", "Filled with Love ", " Laughter And Happyess", "Chúc mừng", "ngày Phụ nữ", "Việt Nam", "20/10", 
     "Chúc các chị em", "luôn xinh đẹp", "hạnh phúc", "và thành công"
 ];
 
